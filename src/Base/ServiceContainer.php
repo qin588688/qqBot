@@ -5,6 +5,7 @@ namespace Qin\Qqbot\Base;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Qin\Qqbot\Traits\WithAggregator;
+use Qin\Qqbot\Uri\Url;
 
 class ServiceContainer extends Container
 {
@@ -43,7 +44,7 @@ class ServiceContainer extends Container
         $base = [
             'http' => [
                 'timeout' => 30.0,
-                'base_uri' => $this->envStatus ? 'https://api.sgroup.qq.com/' : 'https://sandbox.api.sgroup.qq.com/',
+                'base_uri' => $this->envStatus ? Url::QQ_Com : Url::QQ_Com_Sandbox,
             ],
         ];
         return array_replace_recursive($base, $this->defaultConfig, $this->config);

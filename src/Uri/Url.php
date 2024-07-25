@@ -4,6 +4,10 @@ namespace Qin\Qqbot\Uri;
 
 class Url
 {
+    
+    const QQ_Com = 'https://api.sgroup.qq.com/';
+    
+    const QQ_Com_Sandbox = 'https://sandbox.api.sgroup.qq.com/';
 
     const App_Access_Token = 'https://bots.qq.com/app/getAppAccessToken';
 
@@ -20,6 +24,8 @@ class Url
     const Guilds_Roles = 'guilds/%s/roles';
 
     const Guilds_Roles_Create = 'guilds/%s/roles';
+    
+    const Guilds_Roles_Create_Member = 'guilds/%s/members/%s/roles/%s';
 
     const Guilds_Roles_Update = 'guilds/%s/roles/%s';
     

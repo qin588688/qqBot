@@ -11,6 +11,11 @@ class Client extends BaseClient
 
     public function botInfo()
     {
-        return (new Request($this->app))->sendGet(Url::Guilds_Bot_Info);
+        return $this->httpGet(Url::Guilds_Bot_Info);
+    }
+
+    public function botGuilds()
+    {
+        return $this->httpGet(Url::Me_Guilds);
     }
 }

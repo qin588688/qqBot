@@ -54,28 +54,36 @@ class Request extends RequestBase
         return $this->getResponseContent($response)['content'];
     }
 
-    public static function sendPostOrOther($url,$data,$token = '',$appId = '',$method = 'POST')
+    public function sendPost($data,$url)
     {
-        $header = [
-            'Content-Type: application/json'
-        ];
-        if ($token){
-            $header = array_merge($header,[
-                'Authorization: QQBot ' . $token,
-                'X-Union-Appid: ' . $appId,
-            ]);
-        }
-        $ch = curl_init();
-        curl_setopt ($ch, CURLOPT_URL, $url);
-        curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt ($ch, CURLOPT_CUSTOMREQUEST,  $method);
-        curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 30);
-        curl_setopt ($ch, CURLOPT_POSTFIELDS, json_encode($data));
-        curl_setopt ($ch, CURLOPT_HTTPHEADER, $header);
-        $file_contents = curl_exec($ch);
-        curl_close($ch);
-        return $file_contents;
+        $response = $this->guzzleClient->post(
+            $this->config['http']['base_uri'] . $url, [
+            'headers' => $this->getHeader(),
+            'json'=>$data
+        ]);
+        return $this->getResponseContent($response)['content'];
     }
 
-
+    public function moreMethod($data,$url,$method)
+    {
+        if ($method == 'PATCH'){
+            $response = $this->guzzleClient->patch(
+                $this->config['http']['base_uri'] . $url, [
+                'headers' => $this->getHeader(),
+                'json'=>$data
+            ]);
+        }else if ($method == 'DELETE'){
+            $response = $this->guzzleClient->delete(
+                $this->config['http']['base_uri'] . $url, [
+                'headers' => $this->getHeader()
+            ]);
+        }else if ($method == 'PUT'){
+            $response = $this->guzzleClient->put(
+                $this->config['http']['base_uri'] . $url, [
+                'headers' => $this->getHeader(),
+                'json'=>$data
+            ]);
+        }
+        return $this->getResponseContent($response)['content'];
+    }
 }

@@ -10,8 +10,11 @@ use Qin\Qqbot\Uri\Url;
  * Class Application.
  *
  * @property \Qin\Qqbot\App\Guilds\Client $guilds
+ * @property \Qin\Qqbot\App\Guilds\Member\Client $guilds_member
+ * @property \Qin\Qqbot\App\Guilds\Roles\Client $guilds_roles
  * @property \Qin\Qqbot\App\AccessToken\Client $access_token
  * @property \Qin\Qqbot\App\Bot\Client $bot
+ * @property \Qin\Qqbot\App\Message\Client $message
  *
  */
 class Application extends ServiceContainer
@@ -22,7 +25,10 @@ class Application extends ServiceContainer
     protected $providers = [
         \Qin\Qqbot\App\Guilds\ServiceProvider::class,
         \Qin\Qqbot\App\AccessToken\ServiceProvider::class,
-        \Qin\Qqbot\App\Bot\ServiceProvider::class
+        \Qin\Qqbot\App\Bot\ServiceProvider::class,
+        \Qin\Qqbot\App\Message\ServiceProvider::class,
+        \Qin\Qqbot\App\Guilds\Member\ServiceProvider::class,
+        \Qin\Qqbot\App\Guilds\Roles\ServiceProvider::class
     ];
 
     public function __call($name, $arguments)
