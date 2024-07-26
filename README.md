@@ -25,3 +25,6 @@ $config = [
 ];
 $app = QinBot::app($config);
 ```
+
+## 详细文档
+[https://qinbot.yingmapi.cn/](https://qinbot.yingmapi.cn/)
