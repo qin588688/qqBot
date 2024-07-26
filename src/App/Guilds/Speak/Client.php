@@ -1,6 +1,6 @@
 <?php
 
-namespace Qin\Qqbot\App\Guilds\Roles;
+namespace Qin\Qqbot\App\Guilds\Speak;
 
 use Qin\Qqbot\Base\BaseClient;
 use Qin\Qqbot\Uri\Url;
@@ -8,19 +8,46 @@ use Qin\Qqbot\Uri\Url;
 class Client extends BaseClient
 {
 
-    public function list($guild_id)
+    /**
+     * 获取频道消息频率的设置详情
+     * @param $guild_id
+     * @return mixed
+     */
+    public function setting($guild_id)
     {
-        return $this->httpGet(vsprintf(Url::Guilds_Roles,[$guild_id]));
+        return $this->httpGet(vsprintf(Url::Guilds_Message_Setting,[$guild_id]));
     }
 
-    public function create($guild_id,$data)
+    /**
+     * 频道全员禁言
+     * @param $guild_id
+     * @return mixed
+     */
+    public function allMute($data)
     {
-        return $this->httpPost(vsprintf(Url::Guilds_Roles,[$guild_id]),$data);
+        $save = [];
+        if (isset($data['mute_end_timestamp'])){
+            $save['mute_end_timestamp'] = $data['mute_end_timestamp'];
+        }
+        if (isset($data['mute_seconds'])){
+            $save['mute_seconds'] = $data['mute_seconds'];
+        }
+        if (isset($data['user_ids'])){
+            $save['user_ids'] = $data['user_ids'];
+        }
+        return $this->httpMore(vsprintf(Url::Guilds_Member_Mute,[$data['guild_id']]),$save,'PATCH');
     }
 
-    public function update($guild_id,$role_id,$data)
+    public function muteToMembers($data)
     {
-        return $this->httpMore(vsprintf(Url::Guilds_Roles_Update,[$guild_id,$role_id]),$data,'PATCH');
+        $save = [];
+        if (isset($data['mute_end_timestamp'])){
+            $save['mute_end_timestamp'] = $data['mute_end_timestamp'];
+        }
+        if (isset($data['mute_seconds'])){
+            $save['mute_seconds'] = $data['mute_seconds'];
+        }
+        return $this->httpMore(vsprintf(Url::Guilds_Mute_To_Member,[$data['guild_id'],$data['user_id']]),$save,'PATCH');
     }
 
     public function delete($guild_id,$role_id)

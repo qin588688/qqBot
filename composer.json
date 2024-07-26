@@ -3,7 +3,10 @@
     "description": "php qq机器人api",
     "type": "library",
     "require": {
-        "php": ">7.0"
+        "php": ">7.0",
+        "guzzlehttp/guzzle": "~6.2",
+        "pimple/pimple": "~3.0",
+        "textalk/websocket": "^1.6"
     },
     "license": "Apache-2.0",
     "autoload": {

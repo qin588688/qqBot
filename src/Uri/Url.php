@@ -20,6 +20,10 @@ class Url
     const Guilds_Info = 'guilds/%s';
 
     const Guilds_Bot_Info = 'users/@me';
+    
+    const Guilds_Bot_Permission = 'guilds/%s/api_permission';
+    
+    const Guilds_Bot_Permission_Demand = 'guilds/%s/api_permission/demand';
 
     const Guilds_Roles = 'guilds/%s/roles';
 
@@ -31,11 +35,15 @@ class Url
     
     const Guilds_Roles_Delete = 'guilds/%s/roles/%s';
 
-    const Guilds_Member_List = 'guilds/%s/members?limit=%s';
+    const Guilds_Member_List = 'guilds/%s/members?limit=%s&after=%s';
     
     const Guilds_Member_Info = 'guilds/%s/members/%s';
 
     const Guilds_Member_Mute = 'guilds/%s/mute';
+    
+    const Guilds_Member_Roles = 'guilds/%s/roles/%s/members?start_index=%s&limit=%s';
+
+    const Guilds_Member_Delete = 'guilds/%s/members/%s';
 
     const Guilds_Mute_To_Member = 'guilds/%s/members/%s/mute';
 
@@ -48,6 +56,8 @@ class Url
     const Guilds_Channels_Info = 'channels/%s';
 
     const Guilds_Channels_Threads = 'channels/%s/threads';
+    
+    const Guilds_Channels_Member_Online_Nums = 'channels/%s/online_nums';
 
     const Message_To_Users = 'v2/users/%s/messages';
 
@@ -56,4 +66,10 @@ class Url
     const Message_To_Channels = 'channels/%s/messages';
 
     const Message_By_Channels_Withdraw = 'channels/%s/messages/%s?hidetip=false';
+
+    const Channels_Members_Permissions = 'channels/%s/members/%s/permissions';
+    
+    const Channels_Roles_Permissions = 'channels/%s/roles/%s/permissions';
+
+    const Guilds_Message_Setting = 'guilds/%s/message/setting';
 }
