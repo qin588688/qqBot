@@ -20,6 +20,10 @@ class Url
     const Guilds_Info = 'guilds/%s';
 
     const Guilds_Bot_Info = 'users/@me';
+    
+    const Guilds_Bot_Permission = 'guilds/%s/api_permission';
+    
+    const Guilds_Bot_Permission_Demand = 'guilds/%s/api_permission/demand';
 
     const Guilds_Roles = 'guilds/%s/roles';
 
@@ -62,4 +66,10 @@ class Url
     const Message_To_Channels = 'channels/%s/messages';
 
     const Message_By_Channels_Withdraw = 'channels/%s/messages/%s?hidetip=false';
+
+    const Channels_Members_Permissions = 'channels/%s/members/%s/permissions';
+    
+    const Channels_Roles_Permissions = 'channels/%s/roles/%s/permissions';
+
+    const Guilds_Message_Setting = 'guilds/%s/message/setting';
 }
