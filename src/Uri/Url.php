@@ -31,11 +31,15 @@ class Url
     
     const Guilds_Roles_Delete = 'guilds/%s/roles/%s';
 
-    const Guilds_Member_List = 'guilds/%s/members?limit=%s';
+    const Guilds_Member_List = 'guilds/%s/members?limit=%s&after=%s';
     
     const Guilds_Member_Info = 'guilds/%s/members/%s';
 
     const Guilds_Member_Mute = 'guilds/%s/mute';
+    
+    const Guilds_Member_Roles = 'guilds/%s/roles/%s/members?start_index=%s&limit=%s';
+
+    const Guilds_Member_Delete = 'guilds/%s/members/%s';
 
     const Guilds_Mute_To_Member = 'guilds/%s/members/%s/mute';
 
@@ -48,6 +52,8 @@ class Url
     const Guilds_Channels_Info = 'channels/%s';
 
     const Guilds_Channels_Threads = 'channels/%s/threads';
+    
+    const Guilds_Channels_Member_Online_Nums = 'channels/%s/online_nums';
 
     const Message_To_Users = 'v2/users/%s/messages';
 
