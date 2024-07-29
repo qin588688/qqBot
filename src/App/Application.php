@@ -17,6 +17,7 @@ use Qin\Qqbot\Uri\Url;
  * @property \Qin\Qqbot\App\Message\Client $message
  * @property \Qin\Qqbot\App\Guilds\Permission\Client $guilds_bot_permission
  * @property \Qin\Qqbot\App\Guilds\Speak\Client $guilds_message
+ * @property \Qin\Qqbot\App\Event\Client $event
  *
  */
 class Application extends ServiceContainer
@@ -33,6 +34,7 @@ class Application extends ServiceContainer
         \Qin\Qqbot\App\Guilds\Roles\ServiceProvider::class,
         \Qin\Qqbot\App\Guilds\Permission\ServiceProvider::class,
         \Qin\Qqbot\App\Guilds\Speak\ServiceProvider::class,
+        \Qin\Qqbot\App\Event\ServiceProvider::class,
     ];
 
     public function __call($name, $arguments)
