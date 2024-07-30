@@ -2,13 +2,11 @@
 + PHP >= 7.0
 + [PHP OpenSSL 扩展](https://www.php.net/manual/en/book.openssl.php)
 + composer
-+ [Guzzle HTTP 客户端](https://guzzle-cn.readthedocs.io/zh-cn/latest/overview.html)
-+ [Pimple 依赖注入容器](https://github.com/silexphp/Pimple)
 
 ## 安装方式
 
 ```shell
-composer require qin/qqbot:"^1.0"
+composer require qin/qqbot:"^1.2.2"
 ```
 
 
