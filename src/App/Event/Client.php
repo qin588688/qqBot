@@ -139,7 +139,9 @@ class Client extends BaseClient
         if ($message['t'] == 'READY'){
             $this->session_id = $message['d']['session_id'];
         }else{
-            $this->seq = $message['d']['seq'];
+            if (isset($message['d']['seq'])){
+                $this->seq = $message['d']['seq'];
+            }
         }
         return $message;
     }

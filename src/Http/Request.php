@@ -72,15 +72,18 @@ class Request extends RequestBase
             'headers' => $this->getHeader(),
             'http_errors' => false
         ];
+        if(count($data) > 0){
+            $sendData = array_merge(['json'=>$data],$sendData);
+        }
         if ($method == 'PATCH'){
             $response = $this->guzzleClient->patch(
-                $this->config['http']['base_uri'] . $url, array_merge(['json'=>$data],$sendData));
+                $this->config['http']['base_uri'] . $url, $sendData);
         }else if ($method == 'DELETE'){
             $response = $this->guzzleClient->delete(
-                $this->config['http']['base_uri'] . $url, array_merge(['json'=>$data],$sendData));
+                $this->config['http']['base_uri'] . $url, $sendData);
         }else if ($method == 'PUT'){
             $response = $this->guzzleClient->put(
-                $this->config['http']['base_uri'] . $url, array_merge(['json'=>$data],$sendData));
+                $this->config['http']['base_uri'] . $url, $sendData);
         }
         return $this->getResponseContent($response)['content'];
     }

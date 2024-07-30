@@ -6,7 +6,7 @@
 ## 安装方式
 
 ```shell
-composer require qin/qqbot:"^1.2.1"
+composer require qin/qqbot:"^1.2.2"
 ```
 
 

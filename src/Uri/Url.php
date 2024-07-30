@@ -49,6 +49,8 @@ class Url
 
     const Announces_Create = 'guilds/%s/announces';
 
+    const Announces_Delete = 'guilds/%s/announces/%s';
+
     const Gateway = 'gateway';
 
     const Guilds_Channels = 'guilds/%s/channels';
@@ -72,4 +74,12 @@ class Url
     const Channels_Roles_Permissions = 'channels/%s/roles/%s/permissions';
 
     const Guilds_Message_Setting = 'guilds/%s/message/setting';
+    
+    const Channels_Pins = 'channels/%s/pins/%s';
+    
+    const Channels_Pins_List = 'channels/%s/pins';
+
+    const Channels_Schedules_List = 'channels/%s/schedules';
+
+    const Channels_Schedules_Info = 'channels/%s/schedules/%s';
 }
